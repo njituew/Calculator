@@ -5,7 +5,12 @@ from config import *
 def calculate():
     value = calc.get()
     calc.delete(0, END)
-    calc.insert('end', eval(value))
+    
+    try:
+        calc.insert('end', eval(value))
+    except ZeroDivisionError:
+        calc.insert('end', 'ZERO DIV')
+    
 
 
 def c_operation():
